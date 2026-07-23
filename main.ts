@@ -2,13 +2,16 @@ import { App, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { EXTENSION_REGISTRY } from 'src/extensionsRegistry';
 import { DEFAULT_SETTINGS, ExtendedFileSupportSettings } from 'src/settings';
 import { EmbedRegistry } from 'obsidian-typings';
+import { ImageDecodeService } from 'src/decoding/imageDecodeService';
 
 export default class ExtendedFileSupport extends Plugin {
 	settings: ExtendedFileSupportSettings;
+	imageDecode: ImageDecodeService;
 
 	async onload() {
 		await this.loadSettings();
 		this.addSettingTab(new ExtendedFileSupportSettingTab(this.app, this));
+		this.imageDecode = new ImageDecodeService(this);
 
 		const embedRegistry = this.app.embedRegistry as EmbedRegistry; 
 
@@ -29,7 +32,9 @@ export default class ExtendedFileSupport extends Plugin {
 	}
 
 	onunload() {
-		const embedRegistry = this.app.embedRegistry as EmbedRegistry; 
+		this.imageDecode.destroy();
+
+		const embedRegistry = this.app.embedRegistry as EmbedRegistry;
 
 		for (const extension of EXTENSION_REGISTRY) {
 			for (const extension_type of extension.types) {

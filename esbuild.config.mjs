@@ -73,9 +73,28 @@ const context = await esbuild.context({
 	minify: prod,
 });
 
+// Built as a standalone IIFE (no external deps, no CJS interop) so it can be loaded directly
+// as a classic Worker script via a Blob URL, without needing Node/CJS globals at runtime.
+const workerContext = await esbuild.context({
+	entryPoints: ["src/worker/decodeWorker.ts"],
+	bundle: true,
+	format: "iife",
+	target: "es2018",
+	logLevel: "info",
+	sourcemap: prod ? false : "inline",
+	treeShaking: true,
+	outfile: "worker.js",
+	plugins: [
+		wasmPlugin
+	],
+	minify: prod,
+});
+
 if (prod) {
 	await context.rebuild();
+	await workerContext.rebuild();
 	process.exit(0);
 } else {
 	await context.watch();
+	await workerContext.watch();
 }
