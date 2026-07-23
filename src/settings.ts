@@ -10,6 +10,7 @@ export interface ExtendedFileSupportSettings {
 	exr: boolean;
 	dds: boolean;
 	hdr: boolean;
+	pur: boolean;
 
 	// 3D objects
 	animate_3d_objects: boolean;
@@ -32,6 +33,7 @@ export const DEFAULT_SETTINGS: ExtendedFileSupportSettings = {
 	exr: true,
 	dds: true,
 	hdr: true,
+	pur: true,
 
 	animate_3d_objects: true,
 	obj: true,

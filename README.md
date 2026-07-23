@@ -27,6 +27,7 @@ The file types that are currently supported are:
 - `.exr` (OpenEXR HDR images)
 - `.hdr` (Radiance HDR images)
 - `.dds` (DirectDraw Surface textures, uncompressed and DXT1/3/5 compressed)
+- `.pur` (PureRef, shows the composite preview image)
 - `.gltf`, `.glb` (3D scene format)
 - `.obj` (3D object format)
 - `.stl` (3D format, often used for 3d printing)
