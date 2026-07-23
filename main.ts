@@ -142,6 +142,72 @@ class ExtendedFileSupportSettingTab extends PluginSettingTab {
 					}));
 
 		new Setting(containerEl)
+			.setName(".tga")
+			.setDesc("Truevision TGA (Targa) image files.")
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.tga)
+				.onChange(async (value) => {
+					this.plugin.settings.tga = value;
+					await this.plugin.saveSettings();
+					this.plugin.toggleExtension("tga", value);
+				}));
+
+		new Setting(containerEl)
+			.setName(".tif")
+			.setDesc("Tagged Image File Format.")
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.tif)
+				.onChange(async (value) => {
+					this.plugin.settings.tif = value;
+					await this.plugin.saveSettings();
+					this.plugin.toggleExtension("tif", value);
+				}));
+
+		new Setting(containerEl)
+			.setName(".tiff")
+			.setDesc("Tagged Image File Format.")
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.tiff)
+				.onChange(async (value) => {
+					this.plugin.settings.tiff = value;
+					await this.plugin.saveSettings();
+					this.plugin.toggleExtension("tiff", value);
+				}));
+
+		new Setting(containerEl)
+			.setName(".exr")
+			.setDesc("OpenEXR HDR image files. Tonemapped to sRGB for display.")
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.exr)
+				.onChange(async (value) => {
+					this.plugin.settings.exr = value;
+					await this.plugin.saveSettings();
+					this.plugin.toggleExtension("exr", value);
+				}));
+
+		new Setting(containerEl)
+			.setName(".dds")
+			.setDesc("DirectDraw Surface texture files. Supports uncompressed and DXT1/3/5 compressed textures.")
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.dds)
+				.onChange(async (value) => {
+					this.plugin.settings.dds = value;
+					await this.plugin.saveSettings();
+					this.plugin.toggleExtension("dds", value);
+				}));
+
+		new Setting(containerEl)
+			.setName(".hdr")
+			.setDesc("Radiance HDR (RGBE) image files. Tonemapped to sRGB for display.")
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.hdr)
+				.onChange(async (value) => {
+					this.plugin.settings.hdr = value;
+					await this.plugin.saveSettings();
+					this.plugin.toggleExtension("hdr", value);
+				}));
+
+		new Setting(containerEl)
 			.setName("3D formats")
 			.setHeading();
 
