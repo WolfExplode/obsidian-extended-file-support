@@ -7,6 +7,11 @@ import { PSDComponent, PSDView, VIEW_TYPE_PSD } from "./extensions/psd"
 import { CLIPComponent, CLIPView, VIEW_TYPE_CLIP } from "./extensions/clip"
 import { STLComponent, STLView, VIEW_TYPE_STL } from "./extensions/stl"
 import { AIComponent, AIView, VIEW_TYPE_AI } from "./extensions/ai"
+import { TGAComponent, TGAView, VIEW_TYPE_TGA } from "./extensions/tga"
+import { TIFFComponent, TIFFView, VIEW_TYPE_TIFF } from "./extensions/tiff"
+import { EXRComponent, EXRView, VIEW_TYPE_EXR } from "./extensions/exr"
+import { DDSComponent, DDSView, VIEW_TYPE_DDS } from "./extensions/dds"
+import { HDRComponent, HDRView, VIEW_TYPE_HDR } from "./extensions/hdr"
 
 export type Extension = {
 	types: string[],
@@ -24,4 +29,9 @@ export const EXTENSION_REGISTRY: Extension[] = [
 	{ types: ["psd"], view_type: VIEW_TYPE_PSD, view: PSDView, component: PSDComponent },
 	{ types: ["stl"], view_type: VIEW_TYPE_STL, view: STLView, component: STLComponent },
 	{ types: ["ai"], view_type: VIEW_TYPE_AI, view: AIView, component: AIComponent },
+	{ types: ["tga"], view_type: VIEW_TYPE_TGA, view: TGAView, component: TGAComponent },
+	{ types: ["tif", "tiff"], view_type: VIEW_TYPE_TIFF, view: TIFFView, component: TIFFComponent },
+	{ types: ["exr"], view_type: VIEW_TYPE_EXR, view: EXRView, component: EXRComponent },
+	{ types: ["dds"], view_type: VIEW_TYPE_DDS, view: DDSView, component: DDSComponent },
+	{ types: ["hdr"], view_type: VIEW_TYPE_HDR, view: HDRView, component: HDRComponent },
 ]
