@@ -104,7 +104,7 @@ export class PURComponent extends ExtensionComponent {
 
 		const preview = extractPureRefPreview(PUR_buffer);
 		if (preview) {
-			const image_blob = new Blob([preview.data], { type: preview.mimeType });
+			const image_blob = new Blob([new Uint8Array(preview.data)], { type: preview.mimeType });
 			this.objectURL = URL.createObjectURL(image_blob);
 		}
 
