@@ -12,6 +12,7 @@ import { TIFFComponent, TIFFView, VIEW_TYPE_TIFF } from "./extensions/tiff"
 import { EXRComponent, EXRView, VIEW_TYPE_EXR } from "./extensions/exr"
 import { DDSComponent, DDSView, VIEW_TYPE_DDS } from "./extensions/dds"
 import { HDRComponent, HDRView, VIEW_TYPE_HDR } from "./extensions/hdr"
+import { FBXComponent, FBXView, VIEW_TYPE_FBX } from "./extensions/fbx"
 
 export type Extension = {
 	types: string[],
@@ -34,4 +35,5 @@ export const EXTENSION_REGISTRY: Extension[] = [
 	{ types: ["exr"], view_type: VIEW_TYPE_EXR, view: EXRView, component: EXRComponent },
 	{ types: ["dds"], view_type: VIEW_TYPE_DDS, view: DDSView, component: DDSComponent },
 	{ types: ["hdr"], view_type: VIEW_TYPE_HDR, view: HDRView, component: HDRComponent },
+	{ types: ["fbx"], view_type: VIEW_TYPE_FBX, view: FBXView, component: FBXComponent },
 ]
