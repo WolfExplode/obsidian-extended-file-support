@@ -4,6 +4,7 @@ export interface ExtendedFileSupportSettings {
 	psd: boolean;
 	ai: boolean;
 	ai_render_scale: number;
+	pur: boolean;
 
 	// 3D objects
 	animate_3d_objects: boolean;
@@ -19,6 +20,7 @@ export const DEFAULT_SETTINGS: ExtendedFileSupportSettings = {
 	psd: true,
 	ai: true,
 	ai_render_scale: 1.5,
+	pur: true,
 
 	animate_3d_objects: true,
 	obj: true,
