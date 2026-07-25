@@ -224,6 +224,17 @@ class ExtendedFileSupportSettingTab extends PluginSettingTab {
 				}));
 
 		new Setting(containerEl)
+			.setName(".jfif")
+			.setDesc("JPEG File Interchange Format images.")
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.jfif)
+				.onChange(async (value) => {
+					this.plugin.settings.jfif = value;
+					await this.plugin.saveSettings();
+					this.plugin.toggleExtension("jfif", value);
+				}));
+
+		new Setting(containerEl)
 			.setName("3D formats")
 			.setHeading();
 

@@ -26,6 +26,7 @@ The file types that are currently supported are:
 - `.tif`, `.tiff` (Tagged Image File Format)
 - `.exr` (OpenEXR HDR images)
 - `.hdr` (Radiance HDR images)
+- `.jfif` (JPEG File Interchange Format images)
 - `.dds` (DirectDraw Surface textures, uncompressed and DXT1/3/5 compressed)
 - `.pur` (PureRef, shows the composite preview image)
 - `.gltf`, `.glb` (3D scene format)

@@ -14,6 +14,7 @@ import { DDSComponent, DDSView, VIEW_TYPE_DDS } from "./extensions/dds"
 import { HDRComponent, HDRView, VIEW_TYPE_HDR } from "./extensions/hdr"
 import { FBXComponent, FBXView, VIEW_TYPE_FBX } from "./extensions/fbx"
 import { PURComponent, PURView, VIEW_TYPE_PUR } from "./extensions/pur"
+import { JFIFComponent, JFIFView, VIEW_TYPE_JFIF } from "./extensions/jfif"
 
 export type Extension = {
 	types: string[],
@@ -38,4 +39,5 @@ export const EXTENSION_REGISTRY: Extension[] = [
 	{ types: ["hdr"], view_type: VIEW_TYPE_HDR, view: HDRView, component: HDRComponent },
 	{ types: ["fbx"], view_type: VIEW_TYPE_FBX, view: FBXView, component: FBXComponent },
 	{ types: ["pur"], view_type: VIEW_TYPE_PUR, view: PURView, component: PURComponent },
+	{ types: ["jfif"], view_type: VIEW_TYPE_JFIF, view: JFIFView, component: JFIFComponent },
 ]
