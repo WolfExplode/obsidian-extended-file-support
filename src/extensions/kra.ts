@@ -28,7 +28,6 @@ export class KRAComponent extends ExtensionComponent {
 
 		if (this.objectURL) {
 			const image = new Image();
-			image.src = this.objectURL;
 			image.alt = this.file.name;
 
 			if (this.width) {
@@ -38,10 +37,24 @@ export class KRAComponent extends ExtensionComponent {
 				image.height = this.height;
 			}
 
+			// Wait on the classic load/error events rather than image.decode(): decode()'s
+			// promise is tied to compositor/paint scheduling and can stall for a very long
+			// time when the window isn't actively painting, while load/error fire immediately.
+			const loaded = new Promise<void>((resolve) => {
+				image.addEventListener("load", () => resolve(), { once: true });
+				image.addEventListener("error", () => {
+					console.error(`Failed to load image for ${this.file.path}.`);
+					resolve();
+				}, { once: true });
+			});
+			image.src = this.objectURL;
+
 			this.contentEl.empty();
 			this.contentEl.removeClass("extended-file-loading");
 			this.contentEl.addClasses(["media-embed", "image-embed"]);
 			this.contentEl.append(image);
+
+			await loaded;
 		} else {
 			this.contentEl.empty();
 			this.contentEl.createEl("i", { text: `Could not load ${this.file.path}` });
